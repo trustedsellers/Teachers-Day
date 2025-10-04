@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
+    :root {
       --bg:#061226;
       --panel:#071526;
       --muted:#9bb0c6;
@@ -20,25 +21,52 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial; background:linear-gradient(180deg,var(--bg),#021224 140%); color:#eaf3fb; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:18px; display:flex; align-items:center; justify-content:center}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:linear-gradient(180deg,var(--bg),#021224 140%);
+      color:#eaf3fb;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center
+    }
 
     .wrap{width:100%;max-width:var(--max-width);}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:18px; padding:18px; box-shadow:0 12px 38px rgba(2,6,23,0.7);}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      padding:18px;
+      box-shadow:0 12px 38px rgba(2,6,23,0.7);
+    }
 
-    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2)); display:grid; place-items:center; font-weight:800; color:#021025}
+    .logo{
+      width:56px;height:56px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:grid;place-items:center;
+      font-weight:800;color:#021025
+    }
     .title{line-height:1}
     .title h1{margin:0;font-size:1.2rem}
     .title p{margin:0;color:var(--muted);font-size:0.9rem}
 
-    .top-actions{display:flex;gap:8px}
+    .top-actions{display:flex;gap:8px;flex-wrap:wrap}
     button{font-family:inherit}
-    .btn{background:var(--accent); color:#071022; border:none; padding:10px 12px; border-radius:10px; font-weight:700; cursor:pointer}
+    .btn{
+      background:var(--accent);color:#071022;
+      border:none;padding:10px 14px;
+      border-radius:10px;font-weight:700;
+      cursor:pointer;flex-shrink:0
+    }
     .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
 
     /* grid */
-    .grid{display:grid;grid-template-columns:1fr 360px; gap:18px; margin-top:14px}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:14px}
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
     .main-panel{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00))}
@@ -55,35 +83,60 @@
     .sidebar{position:relative}
     .panel{padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)}
     label{display:block;font-size:0.9rem;color:var(--muted);margin-bottom:6px}
-    input[type=text], textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;font-size:0.95rem}
+    input[type=text], textarea{
+      width:100%;padding:10px;border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+      background:transparent;color:inherit;font-size:0.95rem
+    }
     textarea{min-height:90px;resize:vertical}
-    .controls{display:flex;gap:8px;margin-top:10px}
+    .controls{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
 
     .preview-area{margin-top:12px}
-    #cardPreview{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01)); min-height:100px}
+    #cardPreview{
+      padding:14px;border-radius:12px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+      min-height:100px
+    }
     #cardPreview h3{margin:0;font-size:1.1rem}
     #cardPreview p{margin:8px 0 0 0;color:var(--muted)}
     #cardPreview .from{margin-top:10px;color:var(--muted);font-size:0.9rem}
 
     footer{margin-top:14px;color:var(--muted);font-size:0.9rem;text-align:center}
 
-    /* petals container kept out of flow */
+    /* petals */
     #petals{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:40}
     .petal{position:absolute;will-change:transform,opacity}
 
     /* accessibility */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* mobile optimizations */
+    /* -------- MOBILE OPTIMIZATIONS -------- */
     @media (max-width:520px){
-      body{padding:10px}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: linear-gradient(180deg, var(--bg), #021224 140%);
+  color: #eaf3fb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 18px;
+  display: flex;
+  justify-content: center;   /* ✅ keep horizontal centering */
+  align-items: flex-start;   /* ✅ align content to top instead of center */
+  min-height: 100vh;         /* ✅ allow scrolling */
+}
+
+      header{flex-direction:column;align-items:flex-start;gap:10px}
       .logo{width:48px;height:48px}
-      .title h1{font-size:1rem}
-      .btn{padding:10px 10px;font-size:0.95rem}
-      .grid{gap:12px}
-      .sidebar{order:2}
-      .main-panel{order:1}
-      #cardPreview{font-size:15px}
+      .title h1{font-size:1.1rem}
+      .title p{font-size:0.85rem}
+      .top-actions{width:100%;gap:6px}
+      .btn{flex:1;padding:12px;font-size:0.95rem}
+      .grid{grid-template-columns:1fr;gap:14px}
+      .main-panel,.sidebar{padding:10px}
+      input[type=text],textarea{font-size:1rem;padding:12px}
+      #cardPreview{font-size:14px;padding:10px}
+      footer{font-size:0.8rem;margin-top:20px}
     }
   </style>
 </head>
@@ -98,8 +151,7 @@
             <p>Share a message, make a card, and celebrate teachers.</p>
           </div>
         </div>
-
-        <div class="top-actions" aria-hidden="false">
+        <div class="top-actions">
           <button class="btn" id="toggleMusic">▶ Play</button>
           <button class="btn secondary" id="togglePetals">Show Petals</button>
         </div>
@@ -116,9 +168,7 @@
             <button class="btn secondary" id="clearBoard">Clear Board</button>
           </div>
 
-          <div class="wishes" id="wishesList" aria-live="polite" aria-atomic="true">
-            <!-- wishes will be prepended here -->
-          </div>
+          <div class="wishes" id="wishesList" aria-live="polite" aria-atomic="true"></div>
         </main>
 
         <aside class="sidebar" aria-label="Compose">
@@ -136,15 +186,14 @@
             </div>
 
             <div style="margin-top:12px">
-              <label class="sr-only">Choose style</label>
-              <div style="display:flex;gap:8px">
-                <button class="btn secondary" data-style="gold" onclick="setStyle('gold')">Golden</button>
-                <button class="btn secondary" data-style="purple" onclick="setStyle('purple')">Purple</button>
-                <button class="btn secondary" data-style="classic" onclick="setStyle('classic')">Classic</button>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button class="btn secondary" onclick="setStyle('gold')">Golden</button>
+                <button class="btn secondary" onclick="setStyle('purple')">Purple</button>
+                <button class="btn secondary" onclick="setStyle('classic')">Classic</button>
               </div>
             </div>
 
-            <div class="preview-area" style="margin-top:12px">
+            <div class="preview-area">
               <div id="cardPreview" aria-live="polite">
                 <h3 id="previewTitle">Happy Teacher's Day</h3>
                 <p id="previewMsg">Your heartfelt message will appear here.</p>
@@ -155,173 +204,127 @@
         </aside>
       </div>
 
-      <footer>
-        Made with ❤️ — Teacher's Day • 2025
-      </footer>
+      <footer>Made with ❤️ — Teacher's Day • 2025</footer>
     </div>
   </div>
 
   <div id="petals" aria-hidden="true"></div>
-<audio id="bgMusic" loop preload="auto" >
-  <source src="ssvid.app--Wo-Pyar-Kahan-Muhammad-Waqar-Jabran-Samuel.mp3" type="audio/mpeg">
-
-</audio>
-
+  <audio id="bgMusic" loop preload="auto">
+    <source src="ssvid.app--Wo-Pyar-Kahan-Muhammad-Waqar-Jabran-Samuel.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    // Elements
-    const nameInput = document.getElementById('nameInput');
-    const msgInput = document.getElementById('msgInput');
-    const addBtn = document.getElementById('addBtn');
-    const wishesList = document.getElementById('wishesList');
-    const previewTitle = document.getElementById('previewTitle');
-    const previewMsg = document.getElementById('previewMsg');
-    const previewFrom = document.getElementById('previewFrom');
-    const createCardBtn = document.getElementById('createCardBtn');
-    const downloadBtn = document.getElementById('downloadBtn');
-    const whatsBtn = document.getElementById('whatsBtn');
-    const clearBoardBtn = document.getElementById('clearBoard');
-    const togglePetalsBtn = document.getElementById('togglePetals');
-    const petals = document.getElementById('petals');
-    const bgMusic = document.getElementById('bgMusic');
-    const toggleMusicBtn = document.getElementById('toggleMusic');
+    const nameInput=document.getElementById('nameInput');
+    const msgInput=document.getElementById('msgInput');
+    const addBtn=document.getElementById('addBtn');
+    const wishesList=document.getElementById('wishesList');
+    const previewTitle=document.getElementById('previewTitle');
+    const previewMsg=document.getElementById('previewMsg');
+    const previewFrom=document.getElementById('previewFrom');
+    const createCardBtn=document.getElementById('createCardBtn');
+    const downloadBtn=document.getElementById('downloadBtn');
+    const whatsBtn=document.getElementById('whatsBtn');
+    const clearBoardBtn=document.getElementById('clearBoard');
+    const togglePetalsBtn=document.getElementById('togglePetals');
+    const petals=document.getElementById('petals');
+    const bgMusic=document.getElementById('bgMusic');
+    const toggleMusicBtn=document.getElementById('toggleMusic');
 
-    // State
-    let petalsOn = false; let musicOn = false;
+    let petalsOn=true, musicOn=false;
+    function escapeHtml(s){return(s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-    // Utility
-    function escapeHtml(s){ return (s||'').toString().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-    // Add to board
-    addBtn.addEventListener('click', ()=>{
-      const text = msgInput.value.trim();
-      const name = nameInput.value.trim() || 'Anonymous';
-      if(!text){ alert('Please write a message first'); msgInput.focus(); return; }
-      const item = document.createElement('div'); item.className='wish';
-      item.innerHTML = `<div>${escapeHtml(text)}</div><small>— ${escapeHtml(name)}</small>`;
+    addBtn.addEventListener('click',()=>{
+      const text=msgInput.value.trim();
+      const name=nameInput.value.trim()||'Anonymous';
+      if(!text){alert('Please write a message first');msgInput.focus();return;}
+      const item=document.createElement('div');item.className='wish';
+      item.innerHTML=`<div>${escapeHtml(text)}</div><small>— ${escapeHtml(name)}</small>`;
       wishesList.prepend(item);
-      // update preview
-      previewMsg.textContent = text;
-      previewFrom.textContent = '— ' + name;
-      // clear input for quick reuse
-      msgInput.value = '';
-      nameInput.value = '';
+      previewMsg.textContent=text;
+      previewFrom.textContent='— '+name;
+      msgInput.value='';nameInput.value='';
     });
 
-    // Create preview from inputs
-    createCardBtn.addEventListener('click', ()=>{
-      const text = msgInput.value.trim() || previewMsg.textContent || 'Wishing you a wonderful Teacher\'s Day!';
-      const name = nameInput.value.trim() || previewFrom.textContent.replace('—','').trim() || '';
-      previewMsg.textContent = text;
-      previewFrom.textContent = name ? ('— ' + name) : '';
-      // small visual feedback
-      createCardBtn.textContent = 'Preview Ready ✓';
-      setTimeout(()=>createCardBtn.textContent = 'Create / Preview Card',1200);
+    createCardBtn.addEventListener('click',()=>{
+      const text=msgInput.value.trim()||previewMsg.textContent||"Wishing you a wonderful Teacher's Day!";
+      const name=nameInput.value.trim()||previewFrom.textContent.replace('—','').trim()||'';
+      previewMsg.textContent=text;
+      previewFrom.textContent=name?('— '+name):'';
+      createCardBtn.textContent='Preview Ready ✓';
+      setTimeout(()=>createCardBtn.textContent='Create / Preview Card',1200);
     });
 
-    // WhatsApp share
-    whatsBtn.addEventListener('click', ()=>{
-      const text = previewMsg.textContent.trim();
-      const from = previewFrom.textContent.replace('—','').trim();
-      if(!text){ alert('Write or preview a message first'); return; }
-      const message = `Happy Teacher's Day!\n\n"${text}"\n\n${from ? ('— ' + from) : ''}`;
-      const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
+    whatsBtn.addEventListener('click',()=>{
+      const text=previewMsg.textContent.trim();
+      const from=previewFrom.textContent.replace('—','').trim();
+      if(!text){alert('Write or preview a message first');return;}
+      const message=`Happy Teacher's Day!\n\n"${text}"\n\n${from?('— '+from):''}`;
+      const url=`https://wa.me/?text=${encodeURIComponent(message)}`;
       window.open(url,'_blank');
     });
 
-    // Clear board (with confirmation)
-    clearBoardBtn.addEventListener('click', ()=>{
-      if(confirm('Clear all wishes from the board?')) wishesList.innerHTML='';
-    });
+    clearBoardBtn.addEventListener('click',()=>{if(confirm('Clear all wishes from the board?'))wishesList.innerHTML='';});
 
-    // Petals
-    togglePetalsBtn.addEventListener('click', ()=>{
-      petalsOn = !petalsOn; togglePetalsBtn.textContent = petalsOn ? 'Hide Petals' : 'Show Petals';
-      if(petalsOn) spawnPetals(); else petals.innerHTML='';
+    togglePetalsBtn.addEventListener('click',()=>{
+      petalsOn=!petalsOn;togglePetalsBtn.textContent=petalsOn?'Hide Petals':'Show Petals';
+      if(petalsOn)spawnPetals();else petals.innerHTML='';
     });
-    function spawnPetals(){
-      // keep count modest for mobile
-      const count = window.innerWidth < 520 ? 8 : 16;
-      for(let i=0;i<count;i++) createPetal();
-    }
+    function spawnPetals(){const count=window.innerWidth<520?8:16;for(let i=0;i<count;i++)createPetal();}
     function createPetal(){
-      const el = document.createElement('div'); el.className='petal'; el.textContent='🌸';
-      const size = 14 + Math.random()*30; el.style.fontSize = size+'px';
-      el.style.left = Math.random()*100 + 'vw'; el.style.top = (-10 - Math.random()*30) + 'vh';
+      const el=document.createElement('div');el.className='petal';el.textContent='🌸';
+      const size=14+Math.random()*30;el.style.fontSize=size+'px';
+      el.style.left=Math.random()*100+'vw';el.style.top=(-10-Math.random()*30)+'vh';
       petals.appendChild(el);
-      const dur = 6000 + Math.random()*7000;
-      el.animate([{transform:'translateY(0) rotate(0deg)', opacity:1},{transform:`translateY(${120+Math.random()*80}vh) rotate(${Math.random()*720}deg)`, opacity:0}],{duration:dur,iterations:1,easing:'linear'}).onfinish = ()=>{ el.remove(); if(petalsOn) createPetal(); };
+      const dur=6000+Math.random()*7000;
+      el.animate([{transform:'translateY(0) rotate(0deg)',opacity:1},{transform:`translateY(${120+Math.random()*80}vh) rotate(${Math.random()*720}deg)`,opacity:0}],{duration:dur,iterations:1,easing:'linear'}).onfinish=()=>{el.remove();if(petalsOn)createPetal();};
     }
 
-    // Music toggle
-    toggleMusicBtn.addEventListener('click', ()=>{
-      musicOn = !musicOn; toggleMusicBtn.textContent = musicOn ? '⏸ Pause' : '▶ Play';
-      if(musicOn) bgMusic.play().catch(()=>{}); else bgMusic.pause();
+    toggleMusicBtn.addEventListener('click',()=>{
+      musicOn=!musicOn;toggleMusicBtn.textContent=musicOn?'⏸ Pause':'▶ Play';
+      if(musicOn)bgMusic.play().catch(()=>{});else bgMusic.pause();
     });
 
-    // Download preview as PNG using canvas drawing (works across browsers)
-    downloadBtn.addEventListener('click', ()=>{
-      const title = previewTitle.textContent || "Happy Teacher's Day";
-      const msg = previewMsg.textContent || "Wishing you a wonderful Teacher's Day!";
-      const from = previewFrom.textContent || '';
-      const width = 1200, height = 630;
-      const ratio = window.devicePixelRatio || 1;
-      const canvas = document.createElement('canvas');
-      canvas.width = Math.round(width * ratio);
-      canvas.height = Math.round(height * ratio);
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-      const ctx = canvas.getContext('2d');
-      ctx.scale(ratio, ratio);
-
-      // background
-      const panel = (getComputedStyle(document.documentElement).getPropertyValue('--panel') || '#071526').trim();
-      ctx.fillStyle = panel; ctx.fillRect(0,0,width,height);
-
-      // title
-      const accent = (getComputedStyle(document.documentElement).getPropertyValue('--accent') || '#f6b945').trim();
-      ctx.fillStyle = accent; ctx.font = '700 48px Inter, Arial, sans-serif'; ctx.textBaseline = 'top';
-      const padding = 72; ctx.fillText(title, padding, 72);
-
-      // message (wrapped)
-      ctx.fillStyle = '#c6d5e3'; ctx.font = '400 22px Inter, Arial, sans-serif';
-      const maxWidth = width - padding*2; const lineHeight = 30; const startY = 72 + 64;
-      (function wrapText(ctx, text, x, y, maxWidth, lineHeight){
-        const words = text.split(/\s+/); let line = '', curY = y;
+    downloadBtn.addEventListener('click',()=>{
+      const title=previewTitle.textContent||"Happy Teacher's Day";
+      const msg=previewMsg.textContent||"Wishing you a wonderful Teacher's Day!";
+      const from=previewFrom.textContent||'';
+      const width=1200,height=630;const ratio=window.devicePixelRatio||1;
+      const canvas=document.createElement('canvas');
+      canvas.width=Math.round(width*ratio);canvas.height=Math.round(height*ratio);
+      canvas.style.width=width+'px';canvas.style.height=height+'px';
+      const ctx=canvas.getContext('2d');ctx.scale(ratio,ratio);
+      const panel=(getComputedStyle(document.documentElement).getPropertyValue('--panel')||'#071526').trim();
+      ctx.fillStyle=panel;ctx.fillRect(0,0,width,height);
+      const accent=(getComputedStyle(document.documentElement).getPropertyValue('--accent')||'#f6b945').trim();
+      ctx.fillStyle=accent;ctx.font='700 48px Inter, Arial, sans-serif';ctx.textBaseline='top';
+      const padding=72;ctx.fillText(title,padding,72);
+      ctx.fillStyle='#c6d5e3';ctx.font='400 22px Inter, Arial, sans-serif';
+      const maxWidth=width-padding*2;const lineHeight=30;const startY=72+64;
+      (function wrapText(ctx,text,x,y,maxWidth,lineHeight){
+        const words=text.split(/\s+/);let line='',curY=y;
         for(let n=0;n<words.length;n++){
-          const testLine = line + (line ? ' ' : '') + words[n];
-          if(ctx.measureText(testLine).width > maxWidth && line){ ctx.fillText(line,x,curY); line = words[n]; curY += lineHeight; }
-          else line = testLine;
+          const testLine=line+(line?' ':'')+words[n];
+          if(ctx.measureText(testLine).width>maxWidth&&line){ctx.fillText(line,x,curY);line=words[n];curY+=lineHeight;}
+          else line=testLine;
         }
-        if(line) ctx.fillText(line,x,curY);
-      })(ctx, msg, padding, startY, maxWidth, lineHeight);
-
-      // from
-      if(from){ ctx.fillStyle = '#b8c6d5'; ctx.font = '600 18px Inter, Arial, sans-serif'; ctx.fillText(from, padding, height - 64); }
-
-      // export
-      if(canvas.toBlob){ canvas.toBlob(function(blob){ const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'teachers-day-card.png'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url); }, 'image/png'); }
-      else { const dataUrl = canvas.toDataURL('image/png'); const a = document.createElement('a'); a.href = dataUrl; a.download = 'teachers-day-card.png'; document.body.appendChild(a); a.click(); a.remove(); }
+        if(line)ctx.fillText(line,x,curY);
+      })(ctx,msg,padding,startY,maxWidth,lineHeight);
+      if(from){ctx.fillStyle='#b8c6d5';ctx.font='600 18px Inter, Arial, sans-serif';ctx.fillText(from,padding,height-64);}
+      if(canvas.toBlob){canvas.toBlob(function(blob){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='teachers-day-card.png';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);},'image/png');}
+      else {const dataUrl=canvas.toDataURL('image/png');const a=document.createElement('a');a.href=dataUrl;a.download='teachers-day-card.png';document.body.appendChild(a);a.click();a.remove();}
     });
 
-    // Small helpers
     function setStyle(name){
-      const root = document.documentElement;
-      if(name==='gold') root.style.setProperty('--accent','#f6b945');
-      else if(name==='purple') root.style.setProperty('--accent','#7c3aed');
+      const root=document.documentElement;
+      if(name==='gold')root.style.setProperty('--accent','#f6b945');
+      else if(name==='purple')root.style.setProperty('--accent','#7c3aed');
       else root.style.setProperty('--accent','#f6b945');
-      previewTitle.style.color = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+      previewTitle.style.color=getComputedStyle(document.documentElement).getPropertyValue('--accent');
     }
 
-    // Keyboard submit (Ctrl+Enter)
-    msgInput.addEventListener('keydown', (e)=>{ if(e.ctrlKey && e.key === 'Enter') addBtn.click(); });
-
-    // Initial state
+    msgInput.addEventListener('keydown',(e)=>{if(e.ctrlKey&&e.key==='Enter')addBtn.click();});
     setStyle('gold');
-
-    // Improve mobile rendering: ensure focus scroll into view
-    [nameInput,msgInput].forEach(el=>el.addEventListener('focus', ()=>{ setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),200); }));
-
+    [nameInput,msgInput].forEach(el=>el.addEventListener('focus',()=>{setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),200);}));
   </script>
 </body>
 </html>
